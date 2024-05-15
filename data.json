@@ -1,0 +1,41 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "name": "Проект 1",
+      "tasks": [
+        {
+          "id": "1",
+          "description": "Задача 1",
+          "completed": false
+        },
+        {
+          "id": "2",
+          "description": "Задача 2",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Проект 2",
+      "tasks": [
+        {
+          "id": "1",
+          "description": "Задача 1",
+          "completed": false
+        },
+        {
+          "id": "_mydxopf09",
+          "description": "фавыв",
+          "completed": false
+        },
+        {
+          "id": "_vtznadzci",
+          "description": "фывфывфыв",
+          "completed": false
+        }
+      ]
+    }
+  ]
+}
