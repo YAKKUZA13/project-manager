@@ -61,7 +61,16 @@
     </style>
 </head>
 <body>
-    <div id="app"></div>
+    <div id="app">
+        <form>
+            <input type="text" id="projectIdInput" placeholder="Введите ID проекта" required>
+            <button type="button" id="getProjectButton">Открыть проект</button>
+        </form>
+        <form>
+            <input type="text" id="projectNameInput" placeholder="Название нового проекта" required>
+            <button type="button" id="createProjectButton">Создать проект</button>
+        </form>
+    </div>
 
     <script src="script.js"></script>
 </body>
