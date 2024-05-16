@@ -1,12 +1,8 @@
 let btn = document.getElementById("eveProjID")
 btn.addEventListener('click', async ()=>{
     let id = document.getElementById("getProjId")
-    id = String(id.value)
-   loadProject(id)
-
+   loadProject(String(id.value))
 })
-
-
 async function loadProject(projectId) {
   const response = await fetch(`/project/${projectId}`);
   const project = await response.json();
