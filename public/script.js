@@ -12,6 +12,7 @@ async function loadProject(projectId) {
   `;
   taskForm.onsubmit = (e) => {
       e.preventDefault();
+      
       addTask(projectId);
   };
   app.appendChild(taskForm);
