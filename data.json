@@ -5,13 +5,33 @@
       "name": "Проект 1",
       "tasks": [
         {
-          "id": "1",
-          "description": "Задача 1",
+          "id": "_qa1bvzjt9",
+          "description": "1231",
           "completed": false
         },
         {
-          "id": "2",
-          "description": "Задача 2",
+          "id": "_rk0pu7fy2",
+          "description": "1231",
+          "completed": false
+        },
+        {
+          "id": "_feriqbkym",
+          "description": "1231",
+          "completed": false
+        },
+        {
+          "id": "_rndiuos3o",
+          "description": "1231",
+          "completed": false
+        },
+        {
+          "id": "_z5y0xl2b7",
+          "description": "1231",
+          "completed": false
+        },
+        {
+          "id": "_ix81ph3cr",
+          "description": "1231",
           "completed": false
         }
       ]
@@ -21,18 +41,8 @@
       "name": "Проект 2",
       "tasks": [
         {
-          "id": "1",
-          "description": "Задача 1",
-          "completed": false
-        },
-        {
-          "id": "_mydxopf09",
+          "id": "_6hoveqtce",
           "description": "фавыв",
-          "completed": false
-        },
-        {
-          "id": "_vtznadzci",
-          "description": "фывфывфыв",
           "completed": false
         }
       ]
@@ -44,7 +54,13 @@
     },
     {
       "name": "Защита",
-      "tasks": [],
+      "tasks": [
+        {
+          "id": "_oqpt5g95a",
+          "description": "1231",
+          "completed": false
+        }
+      ],
       "id": "4"
     },
     {
@@ -56,6 +72,16 @@
       "name": "Защита",
       "tasks": [],
       "id": "6"
+    },
+    {
+      "name": "ыаыфвафы",
+      "tasks": [],
+      "id": "7"
+    },
+    {
+      "name": "ыаыфвафы",
+      "tasks": [],
+      "id": "8"
     }
   ]
 }

@@ -1,14 +1,9 @@
-// Событие нажатия кнопки "Открыть проект"
 document.getElementById('getProjectButton').addEventListener('click', () => {
-    // Получение значения ID проекта из текстового поля
     const projectId = document.getElementById('projectIdInput').value;
-    
-    // Отправка GET-запроса для получения данных проекта по ID
     fetch(`/projects/${projectId}`)
-        .then(response => response.json()) // Преобразование ответа в формат JSON
+        .then(response => response.json())
         .then(project => {
             if (project) {
-                // Очистка содержимого элемента с id="app"
                 const app = document.getElementById('app');
                 app.innerHTML = `
                     <h1>${project.name}</h1>
@@ -18,15 +13,11 @@ document.getElementById('getProjectButton').addEventListener('click', () => {
                         <button type="submit">Добавить задачу</button>
                     </form>
                 `;
-                
-                // Привязка события отправки формы для добавления задачи
                 const taskForm = document.getElementById('taskForm');
                 taskForm.onsubmit = (e) => {
-                    e.preventDefault(); // Предотвращение перезагрузки страницы
-                    addTask(projectId); // Вызов функции добавления задачи
+                    e.preventDefault();
+                    addTask(projectId);
                 };
-                
-                // Перебор задач проекта и их отображение
                 project.tasks.forEach(task => {
                     const taskElement = document.createElement('div');
                     taskElement.className = 'task' + (task.completed ? ' completed' : '');
@@ -37,16 +28,15 @@ document.getElementById('getProjectButton').addEventListener('click', () => {
                             <button onclick="toggleTask('${projectId}', '${task.id}', ${!task.completed})">${task.completed ? 'Отметить невыполненной' : 'Отметить выполненной'}</button>
                         </div>
                     `;
-                    document.getElementById('tasks').appendChild(taskElement); // Добавление задачи в элемент с id="tasks"
+                    document.getElementById('tasks').appendChild(taskElement);
                 });
             } else {
-                console.error('Проект не найден'); // Обработка ошибки, если проект не найден
+                console.error('Проект не найден');
             }
         })
-        .catch(error => console.error('Ошибка:', error)); // Обработка ошибок запроса
+        .catch(error => console.error('Ошибка:', error));
 });
 
-// Событие нажатия кнопки "Создать проект"
 document.getElementById('createProjectButton').addEventListener('click', () => {
     const projectName = document.getElementById('projectNameInput').value;
     const newProject = {
@@ -54,37 +44,34 @@ document.getElementById('createProjectButton').addEventListener('click', () => {
         tasks: []
     };
 
-    // Отправка POST-запроса для создания нового проекта
     fetch('/projects', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(newProject), // Преобразование объекта проекта в JSON
+        body: JSON.stringify(newProject),
     })
     .then(response => {
         if (response.ok) {
-            console.log('Проект создан'); // Сообщение об успешном создании проекта
+            console.log('Проект создан');
         } else {
-            console.error('Ошибка при создании проекта'); // Обработка ошибки создания проекта
+            console.error('Ошибка при создании проекта');
         }
     })
-    .catch(error => console.error('Ошибка:', error)); // Обработка ошибок запроса
+    .catch(error => console.error('Ошибка:', error));
 });
 
-// Функция для переключения состояния задачи (выполнена/невыполнена)
 async function toggleTask(projectId, taskId, completed) {
     await fetch(`/project/${projectId}/task`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ taskId, completed }) // Отправка данных о задаче
+        body: JSON.stringify({ taskId, completed })
     });
-    loadProject(projectId); // Перезагрузка данных проекта
+    loadProject(projectId);
 }
 
-// Функция для добавления новой задачи
 async function addTask(projectId) {
     const taskDescription = document.getElementById('taskDescription').value;
     await fetch(`/project/${projectId}/tasks`, {
@@ -92,20 +79,18 @@ async function addTask(projectId) {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ description: taskDescription }) // Отправка данных новой задачи
+        body: JSON.stringify({ description: taskDescription })
     });
-    loadProject(projectId); // Перезагрузка данных проекта
+    loadProject(projectId);
 }
 
-// Функция для удаления задачи
 async function deleteTask(projectId, taskId) {
     await fetch(`/project/${projectId}/task/${taskId}`, {
         method: 'DELETE'
     });
-    loadProject(projectId); // Перезагрузка данных проекта
+    loadProject(projectId);
 }
 
-// Функция для перезагрузки данных проекта
 function loadProject(projectId) {
-    document.getElementById('getProjectButton').click(); // Эмуляция нажатия кнопки "Открыть проект"
+    document.getElementById('getProjectButton').click();
 }
