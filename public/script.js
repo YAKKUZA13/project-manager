@@ -1,3 +1,12 @@
+let btn = document.getElementById("eveProjID")
+btn.addEventListener('click', async ()=>{
+    let id = document.getElementById("getProjId")
+    id = String(id.value)
+   loadProject(id)
+
+})
+
+
 async function loadProject(projectId) {
   const response = await fetch(`/project/${projectId}`);
   const project = await response.json();
@@ -61,4 +70,28 @@ async function deleteTask(projectId, taskId) {
   loadProject(projectId);
 }
 
-loadProject('2'); // Пример загрузки проекта с ID 2
+document.getElementById('projectForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const projectName = document.getElementById('projectName').value;
+
+    fetch('http://localhost:3000/project', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            name: projectName,
+            tasks: []
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(`Project created: ${data.name}`);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+
+loadProject('3'); // Пример загрузки проекта с ID 2

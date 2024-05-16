@@ -55,6 +55,21 @@ app.post('/project/:id/tasks', (req, res) => {
   }
 });
 
+app.post('/project', (req, res) => {
+  const newProject = req.body;
+  const data = JSON.parse(fs.readFileSync('data.json', 'utf8'))
+  newProject.id = String(data.projects.length + 1);
+  data.projects.push(newProject);
+
+  fs.writeFile('./data.json', JSON.stringify(data, null, 2), (err) => {
+      if (err) {
+          return res.status(500).json({ error: 'Ошибка при сохранении данных.' });
+      }
+      res.status(201).json(newProject);
+  });
+});
+
+
 // Удаление задачи
 app.delete('/project/:id/task/:taskId', (req, res) => {
   const data = JSON.parse(fs.readFileSync('data.json', 'utf8'));
