@@ -35,7 +35,7 @@ async function loadProject(projectId) {
       app.appendChild(taskElement);
   });
 }
-
+// обновление задачи
 async function toggleTask(projectId, taskId, completed) {
   await fetch(`/project/${projectId}/task`, {
       method: 'POST',
@@ -46,7 +46,7 @@ async function toggleTask(projectId, taskId, completed) {
   });
   loadProject(projectId);
 }
-
+// добавление задачи
 async function addTask(projectId) {
   const taskDescription = document.getElementById('taskDescription').value;
   await fetch(`/project/${projectId}/tasks`, {
@@ -58,7 +58,7 @@ async function addTask(projectId) {
   });
   loadProject(projectId);
 }
-
+// удаление задачи 
 async function deleteTask(projectId, taskId) {
   await fetch(`/project/${projectId}/task/${taskId}`, {
       method: 'DELETE'
