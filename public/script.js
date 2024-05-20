@@ -29,7 +29,7 @@ async function loadProject(projectId) {
           <span>${task.description}</span>
           <div>
               <button onclick="deleteTask('${projectId}', '${task.id}')">Удалить</button>
-              <button onclick="toggleTask('${projectId}', '${task.id}', ${!task.completed})">${task.completed ? 'Unmark' : 'Отметить выполненым'}</button>
+              <button onclick="toggleTask('${projectId}', '${task.id}', ${!task.completed})">${task.completed ? 'Отменить' : 'Отметить выполненым'}</button>
           </div>
       `;
       app.appendChild(taskElement);
@@ -83,7 +83,7 @@ document.getElementById('projectForm').addEventListener('submit', function(event
     })
     .then(response => response.json())
     .then(data => {
-        alert(`Project created: ${data.name}`);
+        alert(`Создан проект: ${data.name}`);
     })
     .catch(error => {
         console.error('Error:', error);

@@ -13,6 +13,11 @@
           "id": "2",
           "description": "Задача 2",
           "completed": false
+        },
+        {
+          "id": "_a2njnuo79",
+          "description": "asfasdasda",
+          "completed": true
         }
       ]
     },
@@ -23,17 +28,17 @@
         {
           "id": "1",
           "description": "Задача 1",
+          "completed": true
+        },
+        {
+          "id": "_f2u7b82b3",
+          "description": "Задача 2",
           "completed": false
         },
         {
-          "id": "_mydxopf09",
-          "description": "фавыв",
-          "completed": false
-        },
-        {
-          "id": "_vtznadzci",
-          "description": "фывфывфыв",
-          "completed": false
+          "id": "_ussgxmazt",
+          "description": "Задача 3",
+          "completed": true
         }
       ]
     },
@@ -41,12 +46,17 @@
       "name": "asd",
       "tasks": [
         {
-          "id": "_52jbcou48",
-          "description": "1231",
+          "id": "_t1cxkj9sw",
+          "description": "adfwerw",
           "completed": false
         }
       ],
       "id": "3"
+    },
+    {
+      "name": "Проект 5",
+      "tasks": [],
+      "id": "4"
     }
   ]
 }
